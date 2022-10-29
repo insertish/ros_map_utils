@@ -1,6 +1,6 @@
 # map_utils
 
-Package for working with GeoJSON data.
+ROS package for manipulating GeoJSON data in worldspace.
 
 ## Usage
 
@@ -15,7 +15,7 @@ Run the utility by building then using rosrun:
 
 ```bash
 catkin build # or catkin_make
-rosrun map_utils main.py
+rosrun map_utils editor <filename.geojson>
 ```
 
 ## Known Issues / Limitations
