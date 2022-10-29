@@ -26,4 +26,4 @@ rosrun map_utils main.py
 
 ## Demo
 
-
+https://user-images.githubusercontent.com/38285861/198846753-27af9ee0-9ceb-4253-a436-e9dc01a797e2.mp4
