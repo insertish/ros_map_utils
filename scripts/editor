@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+from map_utils import GeoFile, PolygonBuilder
+from sys import argv
+import rospy
+
+# keep a reference to the file
+file: GeoFile = None
+
+def create_feature():
+    '''
+    Create a new feature.
+    '''
+
+    name = input("Feature Name: ")
+    print("\nPublish points to add to polygon, press any key once done.")
+    builder = PolygonBuilder(name)
+    input()
+    file.add_feature(builder.stop())
+
+def menu():
+    '''
+    Display a main menu for managing features.
+    '''
+
+    option = None
+    while option != '2':
+        print("""
+map_utils
+1. Create Feature
+2. Quit""")
+        option = input("Choice: ")
+
+        if option == '1':
+            create_feature()
+
+if __name__ == '__main__':
+    # check arguments
+    if len(argv) == 1:
+        print('Usage: rosrun map_utils editor <file.geojson>')
+    else:
+        # initialise node
+        rospy.init_node('map_utils_editor', anonymous=True)
+
+        # load file
+        file = GeoFile(argv[1])
+
+        # drop into menu
+        menu()
